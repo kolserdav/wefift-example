@@ -1,0 +1,1 @@
+/home/kol/Projects/group-call/node_modules/.prisma/client/index.d.ts

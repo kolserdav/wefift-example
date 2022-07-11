@@ -2,14 +2,17 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "watch": "tsc -p . -w",
+    "dev": "nodemon dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "kolserdav",
   "license": "ISC",
   "dependencies": {
-    "werift": "^0.15.9"
+    "werift": "^0.15.9",
+    "ws": "^8.8.0"
   }
 }
