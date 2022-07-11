@@ -1,7 +1,7 @@
 import { MediaStream } from 'werift';
 import { RTCInterface, MessageType, SendMessageArgs } from '../types/interfaces';
 import WS from './ws';
-declare class RTC implements RTCInterface {
+declare class RTC implements Omit<RTCInterface, 'createRTC' | 'peerConnections'> {
     peerConnections: RTCInterface['peerConnections'];
     readonly delimiter = "_";
     rooms: Record<string | number, (string | number)[]>;

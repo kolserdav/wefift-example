@@ -1,8 +1,8 @@
 /* eslint-disable no-case-declarations */
 import { v4 } from 'uuid';
-import WS from './core/ws'
-import RTC from './core/rtc'
-import { MessageType } from './types/interfaces'
+import WS from './core/ws';
+import RTC from './core/rtc';
+import { MessageType } from './types/interfaces';
 
 const PORT = 3002;
 
@@ -65,14 +65,13 @@ function createServer({ port = PORT, cors = '' }: { port?: number; cors?: string
       }
     });
 
-
     ws.onclose = async () => {
-     console.log('on close')
+      console.log('on close');
     };
   });
 }
 export default createServer;
 
 if (require.main === module) {
-  createServer({ port: PORT, cors: 'http://localhost:3000'});
+  createServer({ port: PORT, cors: 'http://localhost:3000' });
 }

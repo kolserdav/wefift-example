@@ -1,4 +1,4 @@
-import { RTCPeerConnection, RTCIceCandidate } from 'werift';
+import { RTCPeerConnection as RTCPeerConnectionServer, RTCIceCandidate } from 'werift';
 export declare type SendMessageArgs<T> = Signaling.SendMessageArgs<T>;
 export declare type WSInterface = Signaling.WSInterface;
 export declare type RTCInterface = Connection.RTCInterface;
@@ -73,6 +73,7 @@ export declare namespace Signaling {
 export declare namespace Connection {
     abstract class RTCInterface {
         abstract peerConnections: Record<string, RTCPeerConnection | undefined>;
+        abstract peerConnectionsServer: Record<string, RTCPeerConnectionServer | undefined>;
         readonly delimiter = "_";
         abstract createRTC(args: {
             connId: string;
@@ -81,6 +82,13 @@ export declare namespace Connection {
             target: string | number;
             iceServers?: RTCConfiguration['iceServers'];
         }): Record<number, RTCPeerConnection | undefined>;
+        abstract createRTCServer(args: {
+            connId: string;
+            roomId: number | string;
+            userId: number | string;
+            target: string | number;
+            iceServers?: RTCConfiguration['iceServers'];
+        }): Record<number, RTCPeerConnectionServer | undefined>;
         abstract handleIceCandidate(args: {
             connId: string;
             roomId: number | string;

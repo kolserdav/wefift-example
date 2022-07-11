@@ -2,7 +2,7 @@ import {RTCPeerConnection, RTCPeerConnectionIceEvent, MediaStream, RTCIceCandida
 import { RTCInterface, MessageType, SendMessageArgs } from '../types/interfaces';
 import WS from './ws';
 
-class RTC implements RTCInterface {
+class RTC implements Omit<RTCInterface, 'createRTC' | 'peerConnections'> {
   public peerConnections: RTCInterface['peerConnections'] = {};
   public readonly delimiter = '_';
   public rooms: Record<string | number, (string | number)[]> = {};

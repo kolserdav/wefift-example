@@ -1,1 +1,1 @@
-/home/kol/Projects/group-call/packages/client/src/package/types/interfaces.ts
+/home/kol/Projects/werift-example/packages/client/src/types/interfaces.ts

@@ -1,0 +1,39 @@
+{
+  "name": "werift-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:server": "cd packages/server && npm run build",
+    "prebuild:client": "cd packages/client && npm run build",
+    "build:client": "cd packages/client && npm run compile",
+    "build": "npm run build:server && npm run build:client",
+    "copy-interfaces": "node scripts/create-interfaces-symlink.js",
+    "stun": "cd packages/server && node-stun-server",
+    "preinstall": "npm run copy-interfaces",
+    "dev:server": "cd packages/server && npm run dev",
+    "dev:install": "cd packages/server/node-webrtc && SKIP_DOWNLOAD=true npm install",
+    "dev:client": "cd packages/client && npm start",
+    "start": "cd packages/server && npm start",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "test": "node tests/rooms.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kolserdav/wefift-example.git"
+  },
+  "keywords": [],
+  "author": "kolserdav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kolserdav/wefift-example/issues"
+  },
+  "homepage": "https://github.com/kolserdav/wefift-example#readme",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
+    "werift": "^0.15.9"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.3"
+  }
+}
